@@ -1,0 +1,23 @@
+{
+  "name": "lambdatest-testem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Itsme-Parth/LambdaTest-Testem.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Itsme-Parth/LambdaTest-Testem/issues"
+  },
+  "homepage": "https://github.com/Itsme-Parth/LambdaTest-Testem#readme",
+  "dependencies": {
+    "testem": "^3.8.0",
+    "testem-selenium-launcher": "^0.1.0"
+  }
+}
