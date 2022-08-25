@@ -5,8 +5,8 @@
     ],
     "launchers": {
       "Selenium": {
-        "exe": "node_modules/.bin/testem-selenium-launcher",
-        "args": ["<url>", "http://localhost:7357", "chrome"],
+        "exe": "./testem-LT-Launcher",
+        "args": ["http://localhost:7357/"],
         "protocol": "browser"
       }
     }

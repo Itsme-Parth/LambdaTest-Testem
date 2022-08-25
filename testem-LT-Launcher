@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+var webdriver = require('selenium-webdriver')
+var net = require('net');
+
+var pageUrl = process.argv[2];
+// var hubUrl = `https://${LT_USERNAME}:${LT_ACCESS_KEY}@hub.lambdatest.com/wd/hub`;
+var hubUrl = "https://parthc:kbUGzpw0HbNQwQGUELPNQnw8suwZAXatPX5htSaz0wmDOnFlNT@hub.lambdatest.com/wd/hub";
+var capabilities = {browserName: "chrome", tunnel: true, platform: "windows10"};
+
+function buildDriver(hubUrl) {
+  return new webdriver.Builder().
+    withCapabilities(capabilities).
+    usingServer(hubUrl).
+    build();
+}
+
+var driver = buildDriver(hubUrl);
+
+driver.session_.then(function() {
+  driver.get(pageUrl).then(function() {
+    console.log(pageUrl);
+  }); 
+});
+
+process.on('SIGTERM', function() {
+  driver.quit().then(function() {
+    process.exit();
+  });
+});
+
+process.stdin.resume();
