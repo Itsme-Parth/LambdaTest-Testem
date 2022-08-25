@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+
+var webdriver = require('selenium-webdriver')
+var net = require('net');
+
+// username: Username can be found at automation dashboard
+const LT_USERNAME = process.env.LT_USERNAME || "username";
+
+// AccessKey:  AccessKey can be generated from automation dashboard or profile section
+const LT_ACCESS_KEY = process.env.LT_ACCESS_KEY || "accessKey";
+
+var pageUrl = process.argv[2];
+var browserName = process.argv[3];
+var platform = process.argv[4];
+var hubUrl = `https://${LT_USERNAME}:${LT_ACCESS_KEY}@hub.lambdatest.com/wd/hub`;
+//edit your desired capabilities for the test below 
+
+var capabilities = {
+  "browserName": browserName,
+  "browserVersion": "latest", 
+  "LT:Options": {
+    "buildName": "LambdaTest-Testem-sample",
+		"platformName": platform,
+    "tunnel": true,
+	}
+};
+
+function buildDriver(hubUrl) {
+  return new webdriver.Builder().
+    withCapabilities(capabilities).
+    usingServer(hubUrl).
+    build();
+}
+
+var driver = buildDriver(hubUrl);
+
+driver.session_.then(function() {
+  driver.get(pageUrl).then(function() {
+    console.log(pageUrl);
+  }); 
+})
+
+driver.quit(); 
+
+process.stdin.resume();
+

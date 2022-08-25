@@ -4,9 +4,19 @@
       "tests/*_spec.js"
     ],
     "launchers": {
-      "Selenium": {
-        "exe": "./testem-LT-Launcher",
-        "args": ["http://localhost:7357/"],
+      "LambdaTest": {
+        "exe": "./testem-LT-Launcher-config",
+        "args": ["http://localhost:7357/", "chrome", "windows10"],
+        "protocol": "browser"
+      },
+      "LambdaTest-safari": {
+        "exe": "./testem-LT-Launcher-config",
+        "args": ["http://localhost:7357/", "safari", "MacOS Monterey"],
+        "protocol": "browser"
+      },
+      "LambdaTest-firefox": {
+        "exe": "./testem-LT-Launcher-config",
+        "args": ["http://localhost:7357/", "firefox", "windows10"],
         "protocol": "browser"
       }
     }
