@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/Itsme-Parth/LambdaTest-Testem#readme",
   "dependencies": {
-    "selenium-webdriver": "^3.6.0",
-    "testem": "^3.8.0",
+    "selenium-webdriver": "^4.6.0",
+    "testem": "^3.9.0",
     "testem-selenium-launcher": "^0.1.0"
   }
 }
